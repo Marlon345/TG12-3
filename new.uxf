@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>370</y>
+      <w>310</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>Spieler
+-
+name: str
+jahrgang: int
+position: str
+-staerke: int {1-10}
+-torschuss: int {1-10}
+-motivation:int {1-10}
+-
+Spieler()	
+get_staerke()
+set_staerke()
+get_torschuss()
+set_torschuss()
+get_motivation()
+set_motivation
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
