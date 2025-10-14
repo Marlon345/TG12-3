@@ -3,9 +3,14 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Route für die Hauptseite
-@app.route('/')
+@app.route('/profil')
 def home():
-    return "Server ist bereit und wartet auf Anfragen."
+    return "Marlon Mattes"
+
+@app.route('/profil/JanLeidgold')
+def gold():
+    return "Hallo"
+
 
 # Route zum Empfangen von Nachrichten
 @app.route('/message', methods=['POST'])
