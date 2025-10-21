@@ -1,3 +1,5 @@
+
+
 class Spieler:
     anzahl_Spieler = 0
     def __init__(self, name: str, position: str):

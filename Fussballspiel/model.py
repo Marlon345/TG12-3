@@ -1,7 +1,6 @@
 
 from pydantic import BaseModel, Field, field_validator, ValidationError
 from typing import ClassVar
-
 class Spieler(BaseModel):
     anzahl_Spieler : ClassVar[int] = 0
     name : str = Field(default="None")
@@ -15,5 +14,5 @@ class Spieler(BaseModel):
     model_config = {"validate_assignment": True}
     
 
-s = Spieler(name="Jan", position="Sturm", motivation=10)
-print(s.model_dump)
+#s = Spieler(name="Jan", position="Sturm", motivation=10)
+#print(s.model_dump)

@@ -3,9 +3,11 @@ import requests
 # Server-URL
 server_url = 'http://localhost:12345/message'
 
+
+    
 while True:
     # Nachricht vom Benutzer eingeben
-    message = input("Nachricht an den Server: ")
+   
     # Nachricht an den Server senden
     response = requests.post(server_url, json={"message": message})
     # Antwort vom Server anzeigen
