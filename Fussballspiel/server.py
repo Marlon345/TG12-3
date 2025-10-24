@@ -1,9 +1,13 @@
 
 from flask import Flask, request, jsonify
 from pydantic import BaseModel, Field, ValidationError
+import json
+import os
 
 app = Flask(__name__)
 from model import Spieler
+spielerliste = []
+
 # Route für die Hauptseite
 @app.route('/')
 def home():
@@ -24,6 +28,7 @@ def handle_Spieler():
     try:
         data = request.get_json()
         spieler = Spieler(**data)
+        spielerliste.append(spieler)
         print(spieler.model_dump_json)
         return jsonify({
             "status": "ok",
@@ -36,5 +41,30 @@ def handle_Spieler():
             "message": "Validierung fehlgeschlagen"
         }), 400
 
+def loaddata(spielerJson):
+    if os.path.exists(spielerJson):
+        print("hell yeahh")
+        with open(spielerJson, "r", encoding="utf-8") as f:
+            daten = json.load(f)
+            spielerliste = [Spieler(**s) for s in daten]
+            print("📂 Geladene Spieler:")
+            for s in spielerliste:
+                print(s)
+    else:
+        print(f"⚠️ Datei '{spielerJson}' wurde nicht gefunden.")
+        print("Es wird eine leere Spielerliste erstellt.")
+        spielerliste = []
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=12345)  # Server starten
+        loaddata("spieler.json")
+
+        app.run(host='0.0.0.0', port=12345)  # Server starten
+        
+        with open("spieler.json", "w", encoding="utf-8") as f:
+            json.dump([s.model_dump() for s in spielerliste], f, ensure_ascii=False, indent=4)
+        print("✅ Spieler wurden in 'spieler.json' gespeichert.")
+        
+
+
+       
+
