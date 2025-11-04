@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto erfassen</title>
+</head>
+<body>
+    <h1>Neuer Spieler erfassen</h1>
+
+    <!-- Formular -->
+    <form id="spielerForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="position">Position:</label>
+        <input type="text" id="position" name="position" required><br><br>
+
+        <label for="motivation">Motivation:</label>
+        <input type="Motivation" id="motivation" name="motivation" step="1" min="0" max="10" required><br><br>
+
+        <button type="submit">Absenden</button>
+    </form>
+
+    <h3>Antwort des Servers:</h3>
+    <pre id="serverAntwort"></pre>
+
+    <!-- JavaScript folgt unten -->
+    <script src="client.js"></script>
+</body>
+</html>
