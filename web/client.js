@@ -1,6 +1,3 @@
-
-
-
 document.getElementById("spielerForm").addEventListener("submit", async function(event) {
     event.preventDefault(); // Seite soll nicht neu geladen werden
     alert("test");
